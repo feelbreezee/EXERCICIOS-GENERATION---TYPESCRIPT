@@ -8,5 +8,19 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/feelbreezee/EXERCICIOS-GENERATION---TYPESCRIPT.git"
+  },
+  "bugs": {
+    "url": "https://github.com/feelbreezee/EXERCICIOS-GENERATION---TYPESCRIPT/issues"
+  },
+  "homepage": "https://github.com/feelbreezee/EXERCICIOS-GENERATION---TYPESCRIPT#readme",
+  "devDependencies": {
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
 }
