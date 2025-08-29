@@ -1,29 +1,71 @@
 // queue.ts
+interface queueInterface<Type> {
+   enqueue(dataItem: Type): void;
+   dequeue(): Type | undefined;
+   isEmpty(): boolean;
+   count(): number;
+   printQueue(): void;
+   peek(): Type | undefined;
+   contains(dataItem: Type): boolean;
+   clear(): void;
+}
 
-export class Queue<T> {
-    private items: T[] = [];
+export class Queue<Type> implements queueInterface<Type> {
 
-    enqueue(item: T): void {
-        this.items.push(item); // adiciona no fim
-    }
+   private QueueData: Array<Type> = [];
 
-    dequeue(): T | undefined {
-        return this.items.shift(); // remove do início
-    }
+   constructor() { }
 
-    isEmpty(): boolean {
-        return this.items.length === 0;
-    }
+   isEmpty(): boolean {
+      let result = this.QueueData.length <= 0;
+      return result;
+   }
 
-    printQueue(): void {
-        console.log("Fila atual:", this.items);
-    }
+   enqueue(dataItem: Type): void {
+      this.QueueData.push(dataItem);
+   }
 
-    size(): number {
-        return this.items.length;
-    }
+   dequeue(): Type | undefined {
+      if (this.isEmpty()) {
+         console.log("A fila está vazia");
+         return;
+      } else {
+         var element = this.QueueData.shift();
+         return element;
+      }
+   }
 
-    peek(): T | undefined {
-        return this.items[0]; // vê o primeiro sem remover
-    }
+   count(): number {
+      let len = this.QueueData.length;
+      return len;
+   }
+
+   printQueue(): void {
+      for (let i = 0; i < this.QueueData.length; i++) {
+         console.log(this.QueueData[i]);
+      }
+   }
+
+   peek(): Type | undefined {
+      if (this.isEmpty()) {
+         console.log("A fila está vazia");
+         return;
+      } else {
+         var element = this.QueueData[0];
+         return element;
+      }
+   }
+
+   contains(dataItem: Type): boolean {
+      if (this.QueueData.includes(dataItem)) {
+         return true;
+      } else {
+         return false;
+      }
+   }
+
+   clear(): void {
+      this.QueueData.length = 0;
+   }
+
 }
